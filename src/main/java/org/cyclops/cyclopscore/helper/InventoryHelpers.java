@@ -1,12 +1,15 @@
 package org.cyclops.cyclopscore.helper;
 
+import baubles.api.BaublesApi;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
+import net.minecraftforge.fml.common.Loader;
 import org.apache.commons.lang3.ArrayUtils;
 
 /**
@@ -138,7 +141,25 @@ public class InventoryHelpers {
 	public static ItemStack getItemFromIndex(EntityPlayer player, int itemIndex) {
 		return getItemFromIndex(player, itemIndex, EnumHand.MAIN_HAND);
 	}
-	
+
+    /**
+     * Get the item stack from the given index in the player inventory and compares it against the specified item, if it doesn't work try another container.
+     * @param player The player.
+     * @param itemIndex The index of the item in the inventory.
+     * @param item The item to compare against.
+     * @return The item stack.
+     */
+    public static ItemStack getItemFromIndex(EntityPlayer player, int itemIndex, Item item) {
+        ItemStack stack = getItemFromIndex(player, itemIndex, EnumHand.MAIN_HAND);
+        if (!(stack.getItem().equals(item))) {
+            stack = player.getHeldItemOffhand();
+            if (Loader.isModLoaded("baubles") && !stack.getItem().equals(item)) {
+                stack = BaublesApi.getBaublesHandler(player).getStackInSlot(itemIndex);
+            }
+        }
+        return stack;
+    }
+
 	/**
 	 * Get the item stack from the given index in the player inventory.
 	 * @param player The player.

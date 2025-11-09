@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
  * A simple data class for a block position inside a world.
  * @author rubensworks
  */
-@Data(staticConstructor = "of")
+@Data()
 public class DimPos implements Comparable<DimPos> {
 
     private final int dimensionId;

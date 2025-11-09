@@ -1,4 +1,0 @@
-As always, don't forget to backup your world before updating!
-
-Additions:
-* Add JEI recipe wrapper abstraction for easier Minetweaker recipe handling

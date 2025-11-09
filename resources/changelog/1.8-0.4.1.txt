@@ -1,5 +1,0 @@
-Fixes:
-* Allow null NBT persistence values
-
-Lib features:
-* Add custom tile names to dropped itemstack

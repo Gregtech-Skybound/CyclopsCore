@@ -1,5 +1,0 @@
-As always, don't forget to backup your world before updating!
-
-Fixes:
-* Bump Forge to 14.21.1.2387
-

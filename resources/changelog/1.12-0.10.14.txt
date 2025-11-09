@@ -1,4 +1,0 @@
-As always, don't forget to backup your world before updating!
-
-Fixes:
-* Fix ingredient recipe components not correctly being matched

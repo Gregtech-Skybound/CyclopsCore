@@ -1,5 +1,0 @@
-As always, don't forget to backup your world before updating!
-
-Fixes:
-* Fix biome localization, Closes CyclopsMC/IntegratedDynamics#119
-
